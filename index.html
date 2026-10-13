@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101116">
+  <title>Meu mapa de vídeos</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+  <!-- CONFIGURAÇÃO PADRÃO: este bloco é JSON puro. Substitua-o pelo conteúdo de um JSON baixado para trocar a base do site. -->
+  <script id="defaultConfig" type="application/json">
+    {
+    "format": "youtube-video-map",
+    "schemaVersion": 1,
+    "topics": [
+      {
+        "name": "Jogos",
+        "icon": "🎮",
+        "query": "gameplay jogos histórias desafios jogos survival RPG Pokémon",
+        "children": [
+          {
+            "name": "DayZ",
+            "query": "DayZ gameplay solo survival sniper melhores momentos",
+            "videos": [
+              {
+                "title": "UM SNIPER SOLO DOMINANDO O MELHOR MAPA DO DAYZ",
+                "id": "CYP8ZZI1hPI"
+              }
+            ]
+          },
+          {
+            "name": "Histórias em jogos",
+            "query": "histórias de jogos sandbox servidores Minecraft civilização histórias",
+            "videos": [
+              {
+                "title": "1000 Players Simulate Civilization: Rich & Poor",
+                "id": "ef568d0CrRY"
+              },
+              {
+                "title": "The Entire History of 2b2t",
+                "id": "-3eTxoWSo7c"
+              }
+            ]
+          },
+          {
+            "name": "RPG",
+            "query": "RPG gameplay análise jogos RPG mais rejogáveis",
+            "videos": [
+              {
+                "title": "The Most Replayable Game Ever Made...",
+                "id": "YtcCmtz1j3M"
+              }
+            ]
+          },
+          {
+            "name": "Pokémon",
+            "query": "Pokémon gameplay desafio completar Pokédex jogos",
+            "videos": [
+              {
+                "title": "I Caught All 150 Original Pokemon in one Sitting... it was a mistake",
+                "id": "o1V5UvcvdYE"
+              }
+            ]
+          },
+          {
+            "name": "Friendslop",
+            "query": "jogos cooperativos engraçados com amigos gameplay",
+            "videos": [
+              {
+                "title": "THE FINAL CLIMB! - PEAK WITH FRIENDS",
+                "id": "0JeoeoRStRA"
+              }
+            ]
+          }
+        ],
+        "videos": []
+      },
+      {
+        "name": "Geek",
+        "icon": "🤓",
+        "query": "cultura geek ficção científica trailers explicados quadrinhos lore",
+        "videos": [
+          {
+            "title": "Blade Runner 2099 / Neuromancer Trailers - CYBERPUNK DOUBLE FEATURE!",
+            "id": "I9eeYw0GMjg"
+          },
+          {
+            "title": "Secret Wars 1984: Full Story | Comics Explained",
+            "id": "LkIQTDsRePY"
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "Filmes",
+        "icon": "🎬",
+        "query": "análise de filmes explicação de finais cinema crítica making of",
+        "children": [
+          {
+            "name": "Resumo",
+            "query": "resumo de filmes história completa final explicado",
+            "videos": [
+              {
+                "title": "DETALHES em HOMEM ARANHA UM NOVO DIA (Easter eggs + referências)",
+                "id": "QkcQHrk7I3I",
+                "thumb": "https://i.ytimg.com/vi/QkcQHrk7I3I/hqdefault.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Discussão",
+            "query": "discussão de filmes análise interpretações temas cinema",
+            "videos": [
+              {
+                "title": "Como Derrotar Os JOGOS de \"ROUND 6\"",
+                "id": "20bs7PrrG3Q",
+                "thumb": "https://i.ytimg.com/vi/20bs7PrrG3Q/hqdefault.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Opinião",
+            "query": "opinião crítica review de filmes cinema",
+            "videos": []
+          }
+        ],
+        "videos": []
+      },
+      {
+        "name": "Papos web",
+        "icon": "💬",
+        "query": "conversas entrevistas internet cultura digital podcast brasileiros",
+        "children": [
+          {
+            "name": "Icebergs",
+            "query": "iceberg",
+            "videos": [
+              {
+                "title": "O Misterioso Iceberg do Espaço",
+                "id": "MNeA4W4aTUc",
+                "thumb": "https://i.ytimg.com/vi/MNeA4W4aTUc/hqdefault.jpg"
+              }
+            ]
+          }
+        ],
+        "videos": [
+          {
+            "title": "Despencou Do Monte Fuji Na Stream",
+            "id": "pvLW_s7dSrk",
+            "thumb": "https://i.ytimg.com/vi/pvLW_s7dSrk/hqdefault.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Terror",
+        "icon": "👻",
+        "query": "histórias de terror relatos assustadores mistérios documentário",
+        "children": [
+          {
+            "name": "Relatos e histórias de terror",
+            "query": "relatos de terror histórias assustadoras narradas",
+            "videos": []
+          }
+        ],
+        "videos": [
+          {
+            "title": "The Strange Unsolved Disappearances that Still Haunt Me",
+            "id": "wNiWQFeivhM",
+            "thumb": "https://i.ytimg.com/vi/wNiWQFeivhM/hqdefault.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Histórias e livros",
+        "icon": "📚",
+        "query": "histórias narradas livros histórias reais ensaios literários",
+        "children": [
+          {
+            "name": "Histórias narradas e livros",
+            "query": "histórias narradas livros contos audiobooks",
+            "videos": [
+              {
+                "title": "All Tomorrows: O futuro da Humanidade (Todos os Amanhãs)",
+                "id": "_y9OV1ZHYyY",
+                "thumb": "https://i.ytimg.com/vi/_y9OV1ZHYyY/hqdefault.jpg"
+              }
+            ]
+          }
+        ],
+        "videos": []
+      },
+      {
+        "name": "Video essays",
+        "icon": "🧠",
+        "query": "video essay análise cultura internet cinema jogos documentário",
+        "children": [
+          {
+            "name": "Ensaios sobre jogos e cultura",
+            "query": "video essay jogos cultura internet análise",
+            "videos": [
+              {
+                "title": "RESIDENT EVIL 4 É UMA OBRA DE ARTE",
+                "id": "cabYtPvO3Os",
+                "thumb": "https://i.ytimg.com/vi/cabYtPvO3Os/hqdefault.jpg"
+              }
+            ]
+          }
+        ],
+        "videos": [
+          {
+            "title": "the good youtube videos",
+            "playlistId": "PLcFJuPgqvEijxMg4QAg81JVq94TUzoaRH",
+            "thumb": "https://i.ytimg.com/vi/YzfUj-m2I6I/hqdefault.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Exploração",
+        "icon": "🧭",
+        "query": "exploração urbana lugares abandonados urbex documentário",
+        "children": [
+          {
+            "name": "Exploração urbana",
+            "query": "exploração urbana urbex lugares abandonados documentário",
+            "videos": [
+              {
+                "title": "Dangerous Encounter Exploring The Rockefeller Building",
+                "id": "jupn8ayPMKk",
+                "thumb": "https://i.ytimg.com/vi/jupn8ayPMKk/hqdefault.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Aventuras e lugares remotos",
+            "query": "aventuras exploração lugares remotos natureza documentário",
+            "videos": [
+              {
+                "title": "Massive Lake Found 170ft Beneath a Gas Station",
+                "id": "Y-VIO0Dghe0",
+                "thumb": "https://i.ytimg.com/vi/Y-VIO0Dghe0/hqdefault.jpg"
+              }
+            ]
+          }
+        ],
+        "videos": []
+      },
+      {
+        "name": "Viagens",
+        "icon": "🌍",
+        "query": "documentário de viagem aventura viagem de moto culturas pelo mundo",
+        "videos": [
+          {
+            "title": "YAKUZA, PROSTITUIÇÃO E BRIGA DE GANGUES | Flagrantes no bairro mais perigoso do Japão",
+            "id": "WgY4kwEzGEw"
+          },
+          {
+            "title": "3 Friends Motorbike Through Vietnam With No Plan",
+            "id": "GgbCa0s4Bf0"
+          }
+        ],
+        "children": [
+          {
+            "name": "Urbano",
+            "query": "viagem urbana",
+            "videos": [
+              {
+                "title": "YAKUZA, PR0STITUIÇÃ0 E BRIGA DE GANGUES | Flagrantes no bairro mais perigoso do Japão",
+                "id": "WgY4kwEzGEw",
+                "thumb": "https://i.ytimg.com/vi/WgY4kwEzGEw/hqdefault.jpg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Documentários",
+        "icon": "🎥",
+        "query": "documentário história sociedade culturas documentário completo",
+        "children": [
+          {
+            "name": "História",
+            "query": "documentário história antiga Mesopotâmia sumérios",
+            "videos": [
+              {
+                "title": "Mesopotamia - The Sumerians",
+                "id": "OmNsBk29PsA"
+              }
+            ]
+          },
+          {
+            "name": "Sociologia",
+            "query": "documentário sociologia trabalho sociedade jovens China",
+            "videos": [
+              {
+                "title": "No Boss, No Money: The Raw Reality of China’s Gen-Z Freelancers",
+                "id": "eJZFUEQebbI"
+              }
+            ]
+          }
+        ],
+        "videos": []
+      },
+      {
+        "name": "História",
+        "icon": "🏛️",
+        "query": "documentário histórico Idade Média história explicada",
+        "videos": [
+          {
+            "title": "No, The Middle Ages Weren't Terrible",
+            "id": "bIwVwVPvDH0"
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "Daily vlog / lifestyle",
+        "icon": "📹",
+        "query": "daily vlog lifestyle rotina vida cotidiana vlog",
+        "videos": [
+          {
+            "title": "URGENT I JUST GOT FIRED DAILYVLOG 898",
+            "id": "AGb8DDgKvOI"
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "IRL",
+        "icon": "🎤",
+        "query": "IRL vlog experiências vida real viagem Paraguai compras",
+        "videos": [
+          {
+            "title": "The reality of shopping in PARAGUAY in 2026",
+            "id": "KWPjnpGnMCU"
+          }
+        ],
+        "children": []
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">▶</span><span>MEU MAPA DE VÍDEOS</span></div>
+      <div class="top-actions">
+        <span id="saveStatus" class="save-status" aria-live="polite"></span>
+        <button id="loadMap" class="config-button" type="button" title="Carregar temas de um arquivo JSON" aria-label="Carregar temas">↑ <span>Carregar temas</span></button>
+        <button id="downloadMap" class="config-button" type="button" title="Baixar temas e vídeos em JSON" aria-label="Baixar temas">↓ <span>Baixar temas</span></button>
+        <button id="resetMap" class="config-button reset-config-button" type="button" title="Restaurar os temas padrão" aria-label="Restaurar padrão">↺ <span>Restaurar padrão</span></button>
+        <input id="configFile" type="file" accept=".json,application/json" hidden>
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="filter" type="search" placeholder="Filtrar temas e vídeos…" autocomplete="off" aria-label="Filtrar temas e vídeos">
+          <kbd>/</kbd>
+        </label>
+      </div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">SEU UNIVERSO NO YOUTUBE</p>
+      <h1>O que você quer assistir?</h1>
+      <p class="intro-copy">Clique em um tema para buscar no YouTube. Use ⚙ para ajustar nome e pesquisa, ou + para adicionar vídeos e subtemas.</p>
+    </section>
+
+    <nav class="theme-index" aria-label="Navegar por todos os temas">
+      <div class="index-heading"><span>IR DIRETO PARA</span><span class="index-hint">Todos os temas</span></div>
+      <div id="themeNav" class="theme-nav"></div>
+    </nav>
+
+    <section class="map" aria-label="Mapa mental de temas de vídeo">
+      <button class="root-node" id="rootSearch" type="button">
+        <span class="root-icon" aria-hidden="true">✳</span>
+        <span><strong>Youtube videos</strong><small>ABRIR BUSCA GERAL</small></span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </button>
+      <div class="branches" id="branches"></div>
+      <p class="empty-state" id="emptyState" hidden>Nenhum tema corresponde à busca.</p>
+    </section>
+
+    <footer><span><i class="legend-dot theme-dot"></i> Tema</span><span><i class="legend-dot subtheme-dot"></i> Subtema</span><span><i class="legend-dot video-dot"></i> Vídeo de exemplo</span><span class="footer-note">Vídeos abrem no YouTube · temas e subtemas abrem uma busca</span></footer>
+  </main>
+  <dialog id="editor" class="editor-dialog">
+    <form id="editorForm" class="editor-form">
+      <button id="cancelEditor" class="dialog-close" type="button" aria-label="Fechar">×</button>
+      <p class="eyebrow">EDITAR MAPA</p>
+      <h2 id="editorTitle">Configurar</h2>
+      <div id="editorFields" class="editor-fields"></div>
+      <p id="editorError" class="editor-error" role="alert"></p>
+      <div class="dialog-actions">
+        <button id="cancelEditorButton" class="cancel-button" type="button">Cancelar</button>
+        <button class="save-button" type="submit">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
