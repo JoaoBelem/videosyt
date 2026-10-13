@@ -3,7 +3,7 @@ const themeIcons = {
   "Jogos": "🎮", "Geek": "🤓", "Filmes": "🎬", "Papos web": "💬", "Terror": "👻",
   "Histórias e livros": "📚", "Video essays": "🧠", "Exploração": "🧭", "Viagens": "🌍",
   "Documentários": "🎥", "História": "🏛️", "Daily vlog / lifestyle": "📹", "IRL": "🎤"
-};''''
+};
 const oldSymbolIcons = new Set(["◈", "✦", "▣", "◌", "☾", "▤", "▧", "⌖", "⌁", "▥", "⌛", "◷", "◎"]);
 const topicIcon = (topic) => themeIcons[topic.name] || (oldSymbolIcons.has(topic.icon) ? "✨" : topic.icon || "📌");
 const defaultConfig = JSON.parse(document.querySelector("#defaultConfig").textContent);
