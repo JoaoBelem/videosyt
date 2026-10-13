@@ -71,6 +71,7 @@ function makeVideoCard(item, onEdit, onRemove) {
 
   const tools = document.createElement("div");
   tools.className = "video-tools";
+  tools.classList.add("edit-only");
   tools.append(makeIconButton("Editar vídeo", "✎", () => onEdit(item)), makeIconButton("Remover vídeo", "×", () => onRemove(item)));
   card.append(link, tools);
   return card;
@@ -132,6 +133,7 @@ function renderVideoList(owner, ownerPath) {
   const add = document.createElement("button");
   add.type = "button";
   add.className = "text-action";
+  add.classList.add("edit-only");
   add.textContent = "+ Adicionar vídeo";
   add.addEventListener("click", () => openVideoEditor(ownerPath));
   section.append(add);
@@ -158,7 +160,7 @@ function render() {
     row.className = "item-row theme-row";
     row.append(makeSearchButton(topic.name, topic.query, "theme-head", topicIcon(topic)));
     const tools = document.createElement("div");
-    tools.className = "item-tools";
+    tools.className = "item-tools edit-only";
     tools.append(
       makeIconButton("Configurar tema e pesquisa", "⚙", () => openNodeEditor(path)),
       makeIconButton("Remover tema", "×", () => removeNode(path))
@@ -168,7 +170,7 @@ function render() {
 
     const addSubtheme = document.createElement("button");
     addSubtheme.type = "button";
-    addSubtheme.className = "text-action add-subtheme";
+    addSubtheme.className = "text-action add-subtheme edit-only";
     addSubtheme.textContent = "+ Adicionar subtema";
     addSubtheme.addEventListener("click", () => openSubthemeEditor(topicIndex));
     card.append(addSubtheme);
@@ -185,7 +187,7 @@ function render() {
         subRow.className = "item-row subtheme-row";
         subRow.append(makeSearchButton(child.name, child.query, "subtheme-head", "↳"));
         const subTools = document.createElement("div");
-        subTools.className = "item-tools";
+        subTools.className = "item-tools edit-only";
         subTools.append(
           makeIconButton("Configurar subtema e pesquisa", "⚙", () => openNodeEditor(childPath)),
           makeIconButton("Remover subtema", "×", () => removeNode(childPath))
@@ -199,6 +201,15 @@ function render() {
     branch.append(card);
     branches.append(branch);
   });
+  const addTopicBranch = document.createElement("article");
+  addTopicBranch.className = "branch edit-only add-topic-branch";
+  const addTopicButton = document.createElement("button");
+  addTopicButton.type = "button";
+  addTopicButton.className = "text-action add-topic-masonry";
+  addTopicButton.textContent = "+ Adicionar tema principal";
+  addTopicButton.addEventListener("click", openTopicEditor);
+  addTopicBranch.append(addTopicButton);
+  branches.append(addTopicBranch);
   renderThemeNav();
   filterTopics();
 }
@@ -287,6 +298,15 @@ function openForm(title, fields, onSave) {
     input.name = field.name;
     input.value = field.value || "";
     input.placeholder = field.placeholder || "";
+    if (field.maxGraphemes) {
+      input.autocomplete = "off";
+      input.addEventListener("input", () => {
+        const segmenter = typeof Intl.Segmenter === "function" ? new Intl.Segmenter(undefined, { granularity: "grapheme" }) : null;
+        input.value = segmenter
+          ? [...segmenter.segment(input.value)].slice(0, field.maxGraphemes).map((part) => part.segment).join("")
+          : [...input.value].slice(0, field.maxGraphemes).join("");
+      });
+    }
     if (field.required) input.required = true;
     if (field.multiline) input.rows = 3;
     label.append(input);
@@ -317,6 +337,22 @@ form.addEventListener("submit", async (event) => {
 });
 document.querySelector("#cancelEditor").addEventListener("click", () => dialog.close());
 document.querySelector("#cancelEditorButton").addEventListener("click", () => dialog.close());
+
+function openTopicEditor() {
+  openForm("Adicionar tema", [
+    { name: "icon", label: "Emoji (1 caractere)", placeholder: "✨", required: true, maxGraphemes: 1 },
+    { name: "name", label: "Título do tema", placeholder: "Ex.: Ciência", required: true }
+  ], ({ icon, name }) => {
+    const title = name.trim();
+    if (topics.some((topic) => topic.name.trim().toLocaleLowerCase() === title.toLocaleLowerCase())) {
+      throw new Error("Já existe um tema com esse título.");
+    }
+    topics.push({ name: title, icon: icon.trim(), query: `${title} vídeos`, videos: [], children: [] });
+    saveAndRender();
+  });
+}
+
+document.querySelector("#addTopic").addEventListener("click", openTopicEditor);
 
 function openNodeEditor(path) {
   const node = getOwner(path);
@@ -415,6 +451,14 @@ function saveAndRender() {
 }
 
 document.querySelector("#filter").addEventListener("input", filterTopics);
+const editModeToggle = document.querySelector("#editModeToggle");
+const editModeLabel = document.querySelector("#editModeLabel");
+editModeToggle.addEventListener("click", () => {
+  const editing = document.body.classList.toggle("edit-mode");
+  editModeToggle.setAttribute("aria-pressed", String(editing));
+  editModeLabel.textContent = editing ? "Sair do modo de edição" : "Ativar modo de edição";
+  editModeToggle.querySelector(".edit-mode-icon").textContent = editing ? "✓" : "✎";
+});
 document.addEventListener("keydown", (event) => {
   if (event.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) {
     event.preventDefault();

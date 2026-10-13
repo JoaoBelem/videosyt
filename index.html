@@ -358,15 +358,21 @@
       </div>
     </header>
 
+    <button id="editModeToggle" class="edit-mode-toggle" type="button" aria-pressed="false">
+      <span class="edit-mode-icon" aria-hidden="true">✎</span>
+      <span id="editModeLabel">Ativar modo de edição</span>
+    </button>
+
     <section class="intro">
       <p class="eyebrow">SEU UNIVERSO NO YOUTUBE</p>
       <h1>O que você quer assistir?</h1>
-      <p class="intro-copy">Clique em um tema para buscar no YouTube. Use ⚙ para ajustar nome e pesquisa, ou + para adicionar vídeos e subtemas.</p>
+      <p class="intro-copy">Explore seus temas, subtemas e vídeos. Ative o modo de edição para personalizar seu mapa.</p>
     </section>
 
     <nav class="theme-index" aria-label="Navegar por todos os temas">
       <div class="index-heading"><span>IR DIRETO PARA</span><span class="index-hint">Todos os temas</span></div>
       <div id="themeNav" class="theme-nav"></div>
+      <button id="addTopic" class="text-action add-topic edit-only" type="button">+ Adicionar tema</button>
     </nav>
 
     <section class="map" aria-label="Mapa mental de temas de vídeo">
